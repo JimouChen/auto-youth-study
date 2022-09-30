@@ -26,7 +26,7 @@ https://youthstudy.12355.net/apih5/api/young/course/chapter/saveHistory
 - 可以通过抓包的形式，可以参考这个[抓包分析](https://www.zhouxuebin.club/blog/2021/06/01/qndxx/)
 - 也可以通过下面这种比较方便的方法：
   - 1 微信公众号打开广东共青团
-  - 2 点击下面智慧团建，随便点个进去系统，比如组织转接或者团员报到
+  - 2 点击下面的智慧团建，随便点个进去系统，比如组织转接或者团员报到
   - 3 点击认证资料
   - 4 点击生成电子团员证
   - 5 点击最下方的生成按钮
@@ -50,3 +50,8 @@ if __name__ == '__main__':
 ## 注意
 - mid包含个人的信息，请大家自己保护好自己的mid不要泄露
 - 代码仅供大家私用和学习，不可用于违法交易
+
+## Link
+- 每天自动跑一次，可以在github actions自己配置一下，[参考我这个版本](https://github.com/JimouChen/auto-youth-study-gd)
+    - mid值在Settings —— Secrets可以自己添加键值对，这样只有自己可以看到，别人是看不到的
+
