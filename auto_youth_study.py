@@ -1,5 +1,4 @@
 import requests
-import json
 
 youth_study_headers = {
     'X-Litemall-Token': '',
@@ -14,15 +13,13 @@ def save_history(token, chapter_id):
     headers = youth_study_headers
     headers['X-Litemall-Token'] = token
     data = 'chapterId=' + str(chapter_id)
-    response = requests.post(url=url, headers=headers, data=data)
-    res = json.loads(response.text)
-    return res
+    response = requests.post(url=url, headers=headers, data=data).json()
+    return response
 
 
 def get_chapter_id():
     url = 'https://youthstudy.12355.net/apih5/api/young/chapter/new'
-    response = requests.get(url=url, headers=youth_study_headers)
-    res = json.loads(response.text)
+    res = requests.get(url=url, headers=youth_study_headers).json()
     print('最新一期：', res['data']['entity']['name'])
     return res['data']['entity']['id']
 
@@ -30,15 +27,13 @@ def get_chapter_id():
 def get_token(sign):
     url = 'https://youthstudy.12355.net/apih5/api/user/get'
     data = sign
-    response = requests.post(url=url, headers=youth_study_headers, data=data)
-    res = json.loads(response.text)
+    res = requests.post(url=url, headers=youth_study_headers, data=data).json()
     return res['data']['entity']['token']
 
 
 def get_sign(mid):
     url = 'https://tuanapi.12355.net/questionnaire/getYouthLearningUrl?mid=' + str(mid)
-    response = requests.get(url=url, headers=youth_study_headers)
-    res = json.loads(response.text)
+    res = requests.get(url=url, headers=youth_study_headers).json()
     return res['youthLearningUrl'].split('?')[1]
 
 
